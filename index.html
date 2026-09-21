@@ -1,0 +1,680 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Futuro Limpo | Escolha a Vida</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#080808;
+    color:#fff;
+    line-height:1.6;
+}
+
+/* MENU */
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(8,8,8,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #222;
+}
+
+nav{
+    max-width:1150px;
+    margin:auto;
+    padding:18px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:#ff3b3b;
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav a{
+    color:#ddd;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#ff3b3b;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:130px 25px 80px;
+    background:
+    radial-gradient(circle at 50% 35%,#421313 0%,#170909 25%,#080808 65%);
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.tag{
+    display:inline-block;
+    border:1px solid #ff3b3b;
+    color:#ff6b6b;
+    padding:7px 17px;
+    border-radius:30px;
+    margin-bottom:25px;
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+.hero h1{
+    font-size:clamp(55px,9vw,100px);
+    line-height:.9;
+    margin-bottom:30px;
+    font-weight:900;
+}
+
+.hero h1 span{
+    color:#ff3b3b;
+}
+
+.hero p{
+    color:#bbb;
+    max-width:700px;
+    margin:auto;
+    font-size:19px;
+}
+
+.buttons{
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 25px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.primary{
+    background:#ff3b3b;
+    color:#fff;
+}
+
+.primary:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 30px #ff3b3b44;
+}
+
+.secondary{
+    border:1px solid #444;
+    color:white;
+}
+
+.secondary:hover{
+    border-color:#ff3b3b;
+}
+
+/* SEÇÕES */
+
+section{
+    max-width:1150px;
+    margin:auto;
+    padding:100px 25px;
+}
+
+.title{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.title span{
+    color:#ff3b3b;
+}
+
+.description{
+    color:#999;
+    max-width:700px;
+    margin-bottom:45px;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:#121212;
+    border:1px solid #272727;
+    padding:30px;
+    border-radius:16px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#ff3b3b;
+    box-shadow:0 15px 40px #000;
+}
+
+.icon{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#999;
+}
+
+/* RISCOS */
+
+.risks{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.risk{
+    background:#151010;
+    border-left:4px solid #ff3b3b;
+    padding:25px;
+    border-radius:10px;
+}
+
+.risk h3{
+    margin-bottom:8px;
+}
+
+.risk p{
+    color:#aaa;
+}
+
+/* PREVENÇÃO */
+
+.tips{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.tip{
+    background:#121212;
+    border:1px solid #292929;
+    padding:25px;
+    border-radius:12px;
+}
+
+.tip strong{
+    color:#ff3b3b;
+    font-size:18px;
+}
+
+/* QUIZ */
+
+.quiz{
+    background:linear-gradient(135deg,#250d0d,#100707);
+    border:1px solid #4a1b1b;
+    padding:45px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.quiz h2{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.quiz p{
+    color:#bbb;
+    margin-bottom:25px;
+}
+
+.quiz button{
+    display:block;
+    width:min(600px,100%);
+    margin:10px auto;
+    padding:14px;
+    border-radius:8px;
+    border:1px solid #333;
+    background:#161616;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.quiz button:hover{
+    border-color:#ff3b3b;
+    background:#221010;
+}
+
+#resultado{
+    margin-top:20px;
+    font-weight:bold;
+    color:#ff5757;
+}
+
+/* AJUDA */
+
+.help{
+    text-align:center;
+    background:#111;
+    border:1px solid #292929;
+    padding:65px 30px;
+    border-radius:20px;
+}
+
+.help h2{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.help p{
+    max-width:700px;
+    margin:0 auto 30px;
+    color:#aaa;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid #222;
+    text-align:center;
+    padding:35px 20px;
+    color:#666;
+}
+
+footer strong{
+    color:#ff3b3b;
+}
+
+/* CELULAR */
+
+@media(max-width:750px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        gap:12px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .cards,
+    .risks,
+    .tips{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:58px;
+    }
+
+    .quiz{
+        padding:30px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<nav>
+
+<div class="logo">FUTURO LIMPO</div>
+
+<ul>
+<li><a href="#inicio">Início</a></li>
+<li><a href="#sobre">Projeto</a></li>
+<li><a href="#riscos">Riscos</a></li>
+<li><a href="#prevencao">Prevenção</a></li>
+<li><a href="#quiz">Quiz</a></li>
+<li><a href="#ajuda">Ajuda</a></li>
+</ul>
+
+</nav>
+
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+
+<div class="hero-content">
+
+<div class="tag">PROJETO DE PREVENÇÃO</div>
+
+<h1>
+SEU FUTURO<br>
+<span>COMEÇA HOJE.</span>
+</h1>
+
+<p>
+Informação, prevenção e escolhas conscientes
+podem ajudar a construir um futuro mais saudável.
+</p>
+
+<div class="buttons">
+
+<a href="#sobre" class="btn primary">
+Conheça o projeto
+</a>
+
+<a href="#ajuda" class="btn secondary">
+Preciso de ajuda
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SOBRE -->
+
+<section id="sobre">
+
+<h2 class="title">
+Por que falar sobre <span>drogas?</span>
+</h2>
+
+<p class="description">
+Falar sobre prevenção ajuda pessoas a conhecerem os riscos,
+identificarem situações de vulnerabilidade e procurarem apoio
+quando necessário.
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="icon">🧠</div>
+
+<h3>Informação</h3>
+
+<p>
+Conhecimento confiável ajuda a compreender riscos
+e tomar decisões mais conscientes.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="icon">🛡️</div>
+
+<h3>Prevenção</h3>
+
+<p>
+Prevenir significa fortalecer escolhas saudáveis
+antes que problemas aconteçam.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="icon">❤️</div>
+
+<h3>Apoio</h3>
+
+<p>
+Buscar ajuda quando necessário é uma atitude
+de cuidado e responsabilidade.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- RISCOS -->
+
+<section id="riscos">
+
+<h2 class="title">
+Conheça alguns <span>riscos</span>
+</h2>
+
+<p class="description">
+O uso de drogas pode estar associado a diferentes consequências.
+Os efeitos variam conforme a substância, a pessoa e o contexto.
+</p>
+
+<div class="risks">
+
+<div class="risk">
+<h3>🧠 Saúde mental</h3>
+<p>
+Algumas substâncias podem estar relacionadas a alterações
+de humor, ansiedade e dependência.
+</p>
+</div>
+
+<div class="risk">
+<h3>❤️ Saúde física</h3>
+<p>
+O uso de determinadas substâncias pode causar diferentes
+efeitos e riscos à saúde física.
+</p>
+</div>
+
+<div class="risk">
+<h3>📚 Estudos</h3>
+<p>
+O uso problemático pode interferir na rotina escolar,
+concentração e desempenho.
+</p>
+</div>
+
+<div class="risk">
+<h3>👥 Relacionamentos</h3>
+<p>
+Problemas relacionados ao uso podem afetar relações
+com familiares e amigos.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PREVENÇÃO -->
+
+<section id="prevencao">
+
+<h2 class="title">
+Como fortalecer a <span>prevenção?</span>
+</h2>
+
+<p class="description">
+Algumas atitudes podem contribuir para uma rotina saudável
+e para decisões mais conscientes.
+</p>
+
+<div class="tips">
+
+<div class="tip">
+<strong>01 — Informação</strong>
+<p>
+Procure informações em fontes confiáveis e converse
+com pessoas de confiança.
+</p>
+</div>
+
+<div class="tip">
+<strong>02 — Amizades</strong>
+<p>
+Mantenha relações que respeitem seus limites,
+suas escolhas e seu bem-estar.
+</p>
+</div>
+
+<div class="tip">
+<strong>03 — Hobbies</strong>
+<p>
+Esportes, arte, música, estudos e outros interesses
+podem fazer parte de uma rotina equilibrada.
+</p>
+</div>
+
+<div class="tip">
+<strong>04 — Converse</strong>
+<p>
+Se algo estiver preocupando você, procure um adulto
+ou profissional de confiança.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- QUIZ -->
+
+<section id="quiz">
+
+<div class="quiz">
+
+<h2>🎮 Teste seus conhecimentos</h2>
+
+<p>
+Qual atitude pode ajudar na prevenção?
+</p>
+
+<button onclick="responder(false)">
+Ignorar informações sobre o assunto.
+</button>
+
+<button onclick="responder(true)">
+Buscar informações confiáveis e conversar com alguém de confiança.
+</button>
+
+<button onclick="responder(false)">
+Aceitar qualquer pressão dos amigos.
+</button>
+
+<div id="resultado"></div>
+
+</div>
+
+</section>
+
+
+<!-- AJUDA -->
+
+<section id="ajuda">
+
+<div class="help">
+
+<h2>🆘 Precisa de ajuda?</h2>
+
+<p>
+Se você ou alguém próximo estiver enfrentando dificuldades
+relacionadas ao uso de drogas, converse com um adulto de
+confiança e procure um profissional ou serviço de saúde.
+</p>
+
+<a href="#inicio" class="btn primary">
+Voltar ao início
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<p>
+<strong>Futuro Limpo</strong> — Informação, prevenção e apoio.
+</p>
+
+<p>
+Projeto educativo • 2026
+</p>
+
+</footer>
+
+
+<script>
+
+function responder(correta){
+
+const resultado = document.getElementById("resultado");
+
+if(correta){
+
+resultado.innerHTML =
+"✅ Correto! Buscar informação e apoio é uma atitude importante.";
+
+}else{
+
+resultado.innerHTML =
+"❌ Essa não é a melhor opção. Pense em atitudes que favoreçam informação, segurança e apoio.";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
+```
